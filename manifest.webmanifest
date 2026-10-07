@@ -1,0 +1,17 @@
+{
+  "name": "SlateFolio",
+  "short_name": "SlateFolio",
+  "description": "A private, local-first digital notebook.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080d14",
+  "theme_color": "#0b0f16",
+  "icons": [
+    {
+      "src": "slatefolio-logo.png",
+      "sizes": "1536x1536",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

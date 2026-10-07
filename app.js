@@ -1,5 +1,5 @@
 const KEY='slatefolio-v01';
-const VERSION='0.2.0';
+const VERSION='0.3.0';
 const colors=['#35bff2','#9b7cff','#55d68b','#ffb84d','#ff6f91','#e8e95a','#c28cff','#7ed6df'];
 let state=load(); let currentFolioId=state.currentFolioId||state.folios[0].id; let currentSectionId=null; let editingNoteId=null; let pendingImage=null; let selectedColor=colors[0];
 const $=id=>document.getElementById(id); const esc=s=>String(s??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\\':'&#92;','"':'&quot;'}[c]));
@@ -31,23 +31,30 @@ function addDrawing(){const url=$('drawCanvas').toDataURL('image/png');pendingIm
 function setImagePreview(src,label='Attached image'){ $('attachmentPreview').innerHTML=`<img src="${src}" alt="${label}">`; }
 async function scanToText(){
   const input=$('imageInput');
-  if(!pendingImage){ toast('Take or attach a photo first'); input.click(); return; }
-  if(!window.Tesseract){ toast('OCR library is unavailable'); return; }
+  if(!pendingImage){ toast('Take or attach a page photo first'); input.click(); return; }
   const status=$('ocrStatus');
-  status.textContent='Reading the page…';
+  const editor=$('noteBody');
   try{
-    const result=await Tesseract.recognize(pendingImage,'eng',{logger:m=>{if(m.status==='recognizing text') status.textContent=`Reading the page… ${Math.round((m.progress||0)*100)}%`;}});
-    const text=(result.data.text||'').trim();
-    if(!text){ status.textContent='No readable text found. Try a clearer photo.'; toast('No text found'); return; }
-    const editor=$('noteBody');
+    if(!window.SlateHandwritingOCR?.transcribe){ throw new Error('Handwriting engine is still loading'); }
+    status.textContent='Preparing the handwriting…';
+    const text=await window.SlateHandwritingOCR.transcribe(pendingImage,{
+      onLines:n=>status.textContent=`Found ${n} handwriting lines. Loading local handwriting engine…`,
+      onModelProgress:p=>status.textContent=`Downloading handwriting engine… ${Math.round(p)}% (first use only)`,
+      onLine:(i,total)=>status.textContent=`Reading handwriting… line ${i} of ${total}`
+    });
+    if(!text.trim()){ status.textContent='No handwriting was recognized. Try a closer, brighter photo.'; toast('No handwriting found'); return; }
+    const html=text.split(/\n+/).map(x=>`<p>${esc(x.trim())}</p>`).join('');
     const existing=editor.innerHTML.trim();
-    const blocks=text.split(/\n{2,}/).map(x=>x.split('\n').map(y=>y.trim()).filter(Boolean).join(' ')).filter(Boolean);
-    const html=blocks.map(x=>`<p>${esc(x)}</p>`).join('');
     editor.innerHTML=existing ? `${existing}${html}` : html;
-    status.textContent='Text added to the note. You can edit it now.';
-    toast('Scanned text added');
-  }catch(err){ console.error(err); status.textContent='OCR failed. Try a sharper, better-lit photo.'; toast('Could not read that image'); }
+    status.textContent='Handwriting imported. Review and correct anything before saving.';
+    toast('Handwriting imported');
+  }catch(err){
+    console.error(err);
+    status.textContent=err?.message?.includes('still loading') ? 'Handwriting engine is loading. Tap again in a moment.' : 'Handwriting scan failed. Try a brighter, closer photo.';
+    toast('Could not read handwriting');
+  }
 }
 
-$('menuBtn').onclick=()=>$('sidebar').classList.toggle('open');$('newFolioBtn').onclick=()=>openModal('folioModal');$('newSectionBtn').onclick=()=>{selectedColor=colors[0];renderColors();openModal('sectionModal')};$('welcomeNewSection').onclick=$('newSectionBtn').onclick;$('newNoteBtn').onclick=()=>openNote();$('welcomeNewNote').onclick=()=>openNote();$('emptyNewNote').onclick=()=>openNote();$('searchFocusBtn').onclick=showSearch;$('searchInput').oninput=e=>renderSearch(e.target.value);$('themeBtn').onclick=()=>{document.documentElement.classList.toggle('light');toast(document.documentElement.classList.contains('light')?'Light mode':'Dark mode')};$('saveNoteBtn').onclick=saveNote;$('deleteNoteBtn').onclick=()=>{if(confirm('Delete this note?'))deleteNote()};$('saveSectionBtn').onclick=createSection;$('saveFolioBtn').onclick=createFolio;$('backupBtn').onclick=()=>openModal('backupModal');$('exportBtn').onclick=exportBackup;$('importInput').onchange=e=>e.target.files[0]&&importBackup(e.target.files[0]);$('printBtn').onclick=printSection;$('aboutBtn').onclick=()=>openModal('aboutModal');$('attachImageBtn').onclick=()=>$('imageInput').click();$('cameraBtn').onclick=()=>$('imageInput').click();$('imageInput').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{pendingImage=r.result;setImagePreview(r.result,'Scanned or attached photo');$('ocrStatus').textContent='Photo ready. Tap Scan to Text to import its writing.';toast('Photo added')};r.readAsDataURL(f)};$('ocrBtn').onclick=scanToText;$('drawBtn').onclick=()=>{openModal('drawModal');setTimeout(setupCanvas,50)};$('clearCanvasBtn').onclick=setupCanvas;$('saveDrawingBtn').onclick=addDrawing;document.querySelectorAll('.close-modal').forEach(b=>b.onclick=closeModals);document.querySelectorAll('[data-cmd]').forEach(b=>b.onclick=()=>document.execCommand(b.dataset.cmd,false,null));$('inboxBtn').onclick=()=>toast('Inbox is ready for the next build');
+$('menuBtn').onclick=()=>$('sidebar').classList.toggle('open');$('newFolioBtn').onclick=()=>openModal('folioModal');$('newSectionBtn').onclick=()=>{selectedColor=colors[0];renderColors();openModal('sectionModal')};$('welcomeNewSection').onclick=$('newSectionBtn').onclick;$('newNoteBtn').onclick=()=>openNote();$('welcomeNewNote').onclick=()=>openNote();$('emptyNewNote').onclick=()=>openNote();$('searchFocusBtn').onclick=showSearch;$('searchInput').oninput=e=>renderSearch(e.target.value);$('themeBtn').onclick=()=>{document.documentElement.classList.toggle('light');toast(document.documentElement.classList.contains('light')?'Light mode':'Dark mode')};$('saveNoteBtn').onclick=saveNote;$('deleteNoteBtn').onclick=()=>{if(confirm('Delete this note?'))deleteNote()};$('saveSectionBtn').onclick=createSection;$('saveFolioBtn').onclick=createFolio;$('backupBtn').onclick=()=>openModal('backupModal');$('exportBtn').onclick=exportBackup;$('importInput').onchange=e=>e.target.files[0]&&importBackup(e.target.files[0]);$('printBtn').onclick=printSection;$('aboutBtn').onclick=()=>openModal('aboutModal');$('attachImageBtn').onclick=()=>$('imageInput').click();$('cameraBtn').onclick=()=>$('imageInput').click();$('imageInput').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{pendingImage=r.result;setImagePreview(r.result,'Scanned or attached photo');$('ocrStatus').textContent='Photo ready. Tap Handwriting to Text to transcribe it.';toast('Photo added')};r.readAsDataURL(f)};$('ocrBtn').onclick=scanToText;$('drawBtn').onclick=()=>{openModal('drawModal');setTimeout(setupCanvas,50)};$('clearCanvasBtn').onclick=setupCanvas;$('saveDrawingBtn').onclick=addDrawing;document.querySelectorAll('.close-modal').forEach(b=>b.onclick=closeModals);document.querySelectorAll('[data-cmd]').forEach(b=>b.onclick=()=>document.execCommand(b.dataset.cmd,false,null));$('inboxBtn').onclick=()=>toast('Inbox is ready for the next build');
+
 function renderColors(){const r=$('colorRow');r.innerHTML='';colors.forEach(c=>{const b=document.createElement('button');b.className='color-swatch'+(c===selectedColor?' selected':'');b.style.background=c;b.onclick=()=>{selectedColor=c;renderColors()};r.appendChild(b)})}renderColors();renderSidebar();updateInbox();showFolio();

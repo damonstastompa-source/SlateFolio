@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0b0f16">
   <meta name="description" content="SlateFolio — a private, local-first digital notebook.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SlateFolio">
   <title>SlateFolio</title>
   <link rel="icon" type="image/png" href="slatefolio-logo.png">
+  <link rel="apple-touch-icon" href="slatefolio-logo.png">
+  <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script type="module" src="handwriting-ocr.js"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -74,7 +81,7 @@
   <div class="modal hidden" id="noteModal"><div class="modal-card note-modal-card"><div class="modal-head"><div><span class="eyebrow">NOTE</span><h2 id="noteModalTitle">New Note</h2></div><button class="icon-btn close-modal">×</button></div>
     <div class="note-editor">
       <input id="noteTitle" class="title-input" placeholder="Untitled note" maxlength="160">
-      <div class="editor-tools"><button data-cmd="bold"><b>B</b></button><button data-cmd="italic"><i>I</i></button><button data-cmd="underline"><u>U</u></button><button data-cmd="insertUnorderedList">• List</button><span></span><button id="attachImageBtn">🖼 Photo</button><button id="cameraBtn">📷 Scan</button><button id="ocrBtn">🔤 Scan to Text</button><button id="drawBtn">✎ Draw</button></div>
+      <div class="editor-tools"><button data-cmd="bold"><b>B</b></button><button data-cmd="italic"><i>I</i></button><button data-cmd="underline"><u>U</u></button><button data-cmd="insertUnorderedList">• List</button><span></span><button id="attachImageBtn">🖼 Photo</button><button id="cameraBtn">📷 Scan</button><button id="ocrBtn">✍️ Handwriting to Text</button><button id="drawBtn">✎ Draw</button></div>
       <div id="noteBody" class="rich-editor" contenteditable="true" data-placeholder="Start writing…"></div>
       <div id="ocrStatus" class="ocr-status" aria-live="polite"></div><div id="attachmentPreview" class="attachment-preview"></div>
       <input id="imageInput" type="file" accept="image/*" capture="environment" hidden>
@@ -91,7 +98,7 @@
 
   <div class="modal hidden" id="drawModal"><div class="modal-card draw-card"><div class="modal-head"><div><span class="eyebrow">DRAW</span><h2>Sketch on your page</h2></div><button class="icon-btn close-modal">×</button></div><div class="draw-toolbar"><label>Pen <input id="penSize" type="range" min="1" max="20" value="3"></label><button class="secondary-btn" id="clearCanvasBtn">Clear</button></div><canvas id="drawCanvas"></canvas><div class="modal-foot"><div></div><div><button class="secondary-btn close-modal">Cancel</button><button class="primary-btn" id="saveDrawingBtn">Add Drawing</button></div></div></div></div>
 
-  <div class="modal hidden" id="aboutModal"><div class="modal-card small-card"><div class="modal-head"><div><span class="eyebrow">ABOUT</span><h2>SlateFolio</h2></div><button class="icon-btn close-modal">×</button></div><p>A private, local-first notebook for ideas, projects, notes, sketches, and everything worth keeping.</p><p class="muted">OCR build · v0.2.0</p><button class="secondary-btn close-modal">Close</button></div></div>
+  <div class="modal hidden" id="aboutModal"><div class="modal-card small-card"><div class="modal-head"><div><span class="eyebrow">ABOUT</span><h2>SlateFolio</h2></div><button class="icon-btn close-modal">×</button></div><p>A private, local-first notebook for ideas, projects, notes, sketches, and everything worth keeping.</p><p class="muted">Handwriting OCR build · v0.3.0</p><button class="secondary-btn close-modal">Close</button></div></div>
 
   <div class="toast" id="toast"></div>
   <script src="app.js"></script>

@@ -3,3 +3,4 @@
 
 .ocr-status{min-height:0;color:var(--accent);font-size:12px;padding:0 0 4px}.attachment-preview{display:flex;flex-wrap:wrap;gap:10px}.attachment-preview img{max-width:min(100%,420px);max-height:360px;object-fit:contain;background:#080c12;border-radius:10px}.editor-tools{overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}.editor-tools::-webkit-scrollbar{display:none}
 @media(max-width:760px){.note-modal-card{max-height:calc(100dvh - 20px)}.note-editor{padding:14px 16px}.note-modal-card .modal-head{padding:15px 16px}.note-modal-card .modal-foot{padding:12px 16px}.rich-editor{min-height:260px}.editor-tools{margin-left:-2px;margin-right:-2px}.editor-tools button{flex:0 0 auto}}
+.ocr-status{font-size:12px;color:#6fd5ff;min-height:20px;margin:4px 0 2px;line-height:1.5}.attachment-preview{display:flex;flex-wrap:wrap;gap:8px}.attachment-preview img{max-width:280px;max-height:280px;object-fit:contain;border-radius:10px;border:1px solid var(--line)}
