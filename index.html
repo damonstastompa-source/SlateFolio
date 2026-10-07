@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f16">
+  <meta name="description" content="SlateFolio — a private, local-first digital notebook.">
+  <title>SlateFolio</title>
+  <link rel="icon" type="image/png" href="assets/slatefolio-logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="icon-btn mobile-only" id="menuBtn" aria-label="Open menu">☰</button>
+      <div class="brand">
+        <div class="brand-mark"><img src="assets/slatefolio-logo.png" alt="SlateFolio"></div>
+        <div><div class="brand-name">Slate<span>Folio</span></div><div class="brand-sub">Your notebooks. Your pages. Your way.</div></div>
+      </div>
+      <div class="top-actions">
+        <button class="icon-btn" id="searchFocusBtn" title="Search">⌕</button>
+        <button class="icon-btn" id="themeBtn" title="Toggle theme">◐</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head"><span>MY FOLIOS</span><button class="tiny-btn" id="newFolioBtn" title="New folio">＋</button></div>
+        <div id="folioList" class="folio-list"></div>
+        <div class="sidebar-bottom">
+          <button class="side-link" id="inboxBtn">📥 <span>Inbox</span><b id="inboxCount">0</b></button>
+          <button class="side-link" id="backupBtn">💾 <span>Backup / Restore</span></button>
+          <button class="side-link" id="aboutBtn">ⓘ <span>About SlateFolio</span></button>
+        </div>
+      </aside>
+
+      <main class="main" id="main">
+        <section class="toolbar">
+          <div class="crumbs" id="crumbs">My Notebook</div>
+          <div class="toolbar-actions">
+            <button class="secondary-btn" id="newSectionBtn">＋ Section</button>
+            <button class="primary-btn" id="newNoteBtn">＋ New Note</button>
+          </div>
+        </section>
+
+        <section class="welcome" id="welcome">
+          <div class="welcome-copy">
+            <div class="eyebrow">SLATEFOLIO</div>
+            <h1>A place for everything<br><span>you want to remember.</span></h1>
+            <p>Keep notebooks, sections, ideas, handwritten pages, photos, and notes together — privately in your browser.</p>
+            <div class="quick-actions">
+              <button class="primary-btn" id="welcomeNewNote">＋ Start a Note</button>
+              <button class="secondary-btn" id="welcomeNewSection">＋ Create a Section</button>
+            </div>
+          </div>
+          <div class="welcome-art"><div class="paper-stack"><div></div><div></div><div></div><article>SF</article></div></div>
+        </section>
+
+        <section class="workspace hidden" id="workspace">
+          <div class="section-header"><div><div class="eyebrow">SECTION</div><h2 id="sectionTitle">Section</h2></div><button class="icon-btn" id="sectionMenuBtn">⋯</button></div>
+          <div class="notes-grid" id="notesGrid"></div>
+          <div class="empty-state hidden" id="emptyNotes"><div class="empty-icon">✎</div><h3>No notes here yet</h3><p>Create a note, scan a page, or drop an idea into this section.</p><button class="primary-btn" id="emptyNewNote">＋ New Note</button></div>
+        </section>
+
+        <section class="search-view hidden" id="searchView">
+          <div class="search-head"><div><div class="eyebrow">SEARCH</div><h2>Find anything</h2></div><input id="searchInput" type="search" placeholder="Search notes, sections, tags…" autocomplete="off"></div>
+          <div id="searchResults" class="search-results"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="noteModal"><div class="modal-card note-modal-card"><div class="modal-head"><div><span class="eyebrow">NOTE</span><h2 id="noteModalTitle">New Note</h2></div><button class="icon-btn close-modal">×</button></div>
+    <div class="note-editor">
+      <input id="noteTitle" class="title-input" placeholder="Untitled note" maxlength="160">
+      <div class="editor-tools"><button data-cmd="bold"><b>B</b></button><button data-cmd="italic"><i>I</i></button><button data-cmd="underline"><u>U</u></button><button data-cmd="insertUnorderedList">• List</button><span></span><button id="attachImageBtn">🖼 Photo</button><button id="cameraBtn">📷 Scan</button><button id="drawBtn">✎ Draw</button></div>
+      <div id="noteBody" class="rich-editor" contenteditable="true" data-placeholder="Start writing…"></div>
+      <div id="attachmentPreview" class="attachment-preview"></div>
+      <input id="imageInput" type="file" accept="image/*" capture="environment" hidden>
+      <div class="note-meta-row"><input id="noteTags" placeholder="Tags (comma separated)"><select id="noteSection"></select></div>
+    </div>
+    <div class="modal-foot"><button class="danger-link" id="deleteNoteBtn">Delete</button><div><button class="secondary-btn close-modal">Cancel</button><button class="primary-btn" id="saveNoteBtn">Save Note</button></div></div>
+  </div></div>
+
+  <div class="modal hidden" id="sectionModal"><div class="modal-card small-card"><div class="modal-head"><div><span class="eyebrow">ORGANIZE</span><h2>New Section</h2></div><button class="icon-btn close-modal">×</button></div><label>Section name<input id="sectionName" placeholder="e.g. Resentments"></label><label>Color<div class="color-row" id="colorRow"></div></label><div class="modal-foot"><div></div><div><button class="secondary-btn close-modal">Cancel</button><button class="primary-btn" id="saveSectionBtn">Create Section</button></div></div></div></div>
+
+  <div class="modal hidden" id="folioModal"><div class="modal-card small-card"><div class="modal-head"><div><span class="eyebrow">NEW FOLIO</span><h2>Create a Notebook</h2></div><button class="icon-btn close-modal">×</button></div><label>Name<input id="folioName" placeholder="e.g. My Step Work"></label><div class="modal-foot"><div></div><div><button class="secondary-btn close-modal">Cancel</button><button class="primary-btn" id="saveFolioBtn">Create Folio</button></div></div></div></div>
+
+  <div class="modal hidden" id="backupModal"><div class="modal-card small-card"><div class="modal-head"><div><span class="eyebrow">YOUR DATA</span><h2>Backup / Restore</h2></div><button class="icon-btn close-modal">×</button></div><p class="muted">SlateFolio stores your notebooks in this browser. Export a backup file regularly so you can move or restore your data.</p><div class="backup-actions"><button class="primary-btn" id="exportBtn">↓ Export Backup</button><label class="secondary-btn file-label">↑ Import Backup<input id="importInput" type="file" accept="application/json" hidden></label><button class="secondary-btn" id="printBtn">🖨 Print Current Section</button></div><div class="backup-note">Backup files stay on your device unless you choose where to save them.</div></div></div>
+
+  <div class="modal hidden" id="drawModal"><div class="modal-card draw-card"><div class="modal-head"><div><span class="eyebrow">DRAW</span><h2>Sketch on your page</h2></div><button class="icon-btn close-modal">×</button></div><div class="draw-toolbar"><label>Pen <input id="penSize" type="range" min="1" max="20" value="3"></label><button class="secondary-btn" id="clearCanvasBtn">Clear</button></div><canvas id="drawCanvas"></canvas><div class="modal-foot"><div></div><div><button class="secondary-btn close-modal">Cancel</button><button class="primary-btn" id="saveDrawingBtn">Add Drawing</button></div></div></div></div>
+
+  <div class="modal hidden" id="aboutModal"><div class="modal-card small-card"><div class="modal-head"><div><span class="eyebrow">ABOUT</span><h2>SlateFolio</h2></div><button class="icon-btn close-modal">×</button></div><p>A private, local-first notebook for ideas, projects, notes, sketches, and everything worth keeping.</p><p class="muted">First build · v0.1.0</p><button class="secondary-btn close-modal">Close</button></div></div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
