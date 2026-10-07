@@ -1,38 +1,22 @@
-# SlateFolio
+# SlateFolio v0.3.1
 
-A local-first digital notebook for GitHub Pages.
+Standalone, local-first digital notebook web app for GitHub Pages.
 
-## v0.1.0
+## Upload to GitHub
+Upload every file in this folder to the repository root. No folders are required.
 
-First build includes:
+## Included
 - Multiple folios/notebooks
-- Sections with custom colors
-- Rich-text notes
-- Tags and global search
-- Photo/camera attachments
-- Simple drawing canvas
+- Sections and color coding
+- Rich notes, tags, photos, drawings
+- Search
 - Local browser storage
 - JSON backup/restore
-- Printer-friendly section output
-- Responsive mobile layout
-- SlateFolio branding/icon
+- Printing
+- SlateFolio logo + app icon/PWA metadata
+- Local browser handwriting transcription using Transformers.js + Xenova TrOCR
 
-## Deploy
+## Handwriting scan
+The handwriting engine runs in the browser. The first scan downloads the model and may take a while; the browser caches it for later scans. v0.3.1 uses WASM/q8 first for iPhone/iPad compatibility and automatically tries WebGPU if that path fails.
 
-Upload the contents of this folder to a GitHub repository and enable **GitHub Pages** from the repository's Pages settings. No build step is required.
-
-## Data
-
-Notes are stored in the browser's localStorage. Use **Backup / Restore** regularly if the data matters. Clearing browser/site data can remove local notes.
-
-## Next planned build
-
-OCR from captured pages, drag-and-drop section/note ordering, nested subsections, richer page layouts, drawing/image annotations, inbox, and more robust import/export validation.
-
-
-### App icon
-The SlateFolio logo is used directly as the browser favicon and the iPhone/iPad Home Screen icon. The manifest is included for installable/PWA support.
-
-
-### Handwriting OCR
-SlateFolio v0.3 adds a local browser handwriting recognizer using Transformers.js and the Xenova `trocr-small-handwritten` model. The model is downloaded on first use and then cached by the browser; the note image is processed in the browser rather than uploaded to an OCR API. A strong Wi-Fi connection is recommended for the first handwriting scan.
+For best results, photograph one notebook page straight-on with the page filling most of the frame and good lighting.

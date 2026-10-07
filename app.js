@@ -1,5 +1,5 @@
 const KEY='slatefolio-v01';
-const VERSION='0.3.0';
+const VERSION='0.3.1';
 const colors=['#35bff2','#9b7cff','#55d68b','#ffb84d','#ff6f91','#e8e95a','#c28cff','#7ed6df'];
 let state=load(); let currentFolioId=state.currentFolioId||state.folios[0].id; let currentSectionId=null; let editingNoteId=null; let pendingImage=null; let selectedColor=colors[0];
 const $=id=>document.getElementById(id); const esc=s=>String(s??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\\':'&#92;','"':'&quot;'}[c]));
@@ -40,7 +40,8 @@ async function scanToText(){
     const text=await window.SlateHandwritingOCR.transcribe(pendingImage,{
       onLines:n=>status.textContent=`Found ${n} handwriting lines. Loading local handwriting engine…`,
       onModelProgress:p=>status.textContent=`Downloading handwriting engine… ${Math.round(p)}% (first use only)`,
-      onLine:(i,total)=>status.textContent=`Reading handwriting… line ${i} of ${total}`
+      onModelStatus:m=>status.textContent=m,
+      onLine:(i,total,mode)=>status.textContent=`Reading handwriting… line ${i} of ${total}${mode?` · ${mode}`:''}`
     });
     if(!text.trim()){ status.textContent='No handwriting was recognized. Try a closer, brighter photo.'; toast('No handwriting found'); return; }
     const html=text.split(/\n+/).map(x=>`<p>${esc(x.trim())}</p>`).join('');
@@ -50,7 +51,7 @@ async function scanToText(){
     toast('Handwriting imported');
   }catch(err){
     console.error(err);
-    status.textContent=err?.message?.includes('still loading') ? 'Handwriting engine is loading. Tap again in a moment.' : 'Handwriting scan failed. Try a brighter, closer photo.';
+    status.textContent=err?.message || 'Handwriting scan failed. Try a brighter, closer photo.';
     toast('Could not read handwriting');
   }
 }
