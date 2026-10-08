@@ -13,9 +13,178 @@
   <link rel="icon" type="image/png" href="slatefolio-logo.png">
   <link rel="apple-touch-icon" href="slatefolio-logo.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+body{padding:0;margin:0;}
+:root{--bg:#080c12;--panel:#0e141d;--panel2:#121a25;--line:#26313e;--text:#eef4fb;--muted:#91a0b2;--accent:#35bff2;--accent2:#8bdcff;--danger:#ff6677;--shadow:0 18px 60px #0008;--radius:18px}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 70% -10%,#18384b 0,#080c12 36%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}.app-shell{min-height:100vh}.topbar{height:calc(76px + env(safe-area-inset-top, 0px));padding:env(safe-area-inset-top, 0px) 22px 0;border-bottom:1px solid #ffffff10;background:#080c12e8;backdrop-filter:blur(16px);display:flex;align-items:center;padding:0 22px;justify-content:space-between;position:sticky;top:0;z-index:20}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:44px;height:44px;border-radius:12px;overflow:hidden;background:#05080c;box-shadow:0 0 22px #21baf544}.brand-mark img{width:100%;height:100%;object-fit:cover;object-position:center top}.brand-name{font-weight:800;letter-spacing:-.8px;font-size:21px}.brand-name span{color:var(--accent)}.brand-sub{font-size:11px;color:var(--muted);margin-top:2px}.top-actions{display:flex;gap:8px}.icon-btn,.tiny-btn{border:1px solid var(--line);background:#ffffff05;color:var(--text);border-radius:11px;width:40px;height:40px}.icon-btn:hover,.tiny-btn:hover{background:#ffffff0d;border-color:#ffffff20}.mobile-only{display:none}.layout{display:grid;grid-template-columns:270px 1fr;min-height:calc(100vh - 76px)}.sidebar{border-right:1px solid var(--line);background:#0a0f16aa;padding:22px 14px;display:flex;flex-direction:column}.sidebar-head{display:flex;align-items:center;justify-content:space-between;color:#66778c;font-size:11px;font-weight:800;letter-spacing:1.4px;padding:0 8px 10px}.folio-list{display:flex;flex-direction:column;gap:5px}.folio-item{border:1px solid transparent;background:transparent;color:#cfd9e5;text-align:left;border-radius:12px;padding:10px 11px;display:flex;align-items:center;gap:9px}.folio-item.active{background:#ffffff08;border-color:#ffffff10;color:#fff}.folio-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px #35bff277}.sidebar-bottom{margin-top:auto;border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:4px}.side-link{border:0;background:transparent;color:#9aa8b8;padding:10px 9px;border-radius:10px;text-align:left;display:flex;gap:10px;align-items:center}.side-link:hover{background:#ffffff08;color:#fff}.side-link b{margin-left:auto;font-size:11px;background:#ffffff0d;padding:2px 7px;border-radius:20px}.main{padding:0 30px 50px;max-width:1500px;width:100%;margin:0 auto}.toolbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.crumbs{font-weight:700;color:#c6d1df}.toolbar-actions{display:flex;gap:8px}.primary-btn,.secondary-btn{border-radius:11px;padding:10px 14px;border:1px solid var(--line);color:#fff}.primary-btn{background:linear-gradient(135deg,#19a9df,#3dcbf7);border-color:#5ad7ff;color:#031019;font-weight:800;box-shadow:0 8px 25px #1bb9ef22}.secondary-btn{background:#ffffff07}.secondary-btn:hover{background:#ffffff0d}.welcome{min-height:calc(100vh - 190px);display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:50px}.eyebrow{font-size:10px;font-weight:900;letter-spacing:2px;color:var(--accent);margin-bottom:10px}.welcome h1{font-size:clamp(40px,5vw,72px);line-height:.98;letter-spacing:-3px;margin:0 0 22px}.welcome h1 span{color:#aebdce}.welcome p{max-width:650px;color:var(--muted);font-size:17px;line-height:1.7}.quick-actions{display:flex;gap:10px;margin-top:25px}.welcome-art{display:flex;justify-content:center}.paper-stack{position:relative;width:280px;height:350px;transform:rotate(-7deg);filter:drop-shadow(0 30px 35px #0009)}.paper-stack>div{position:absolute;inset:25px 0 0 30px;background:#e7edf4;border-radius:8px;box-shadow:inset 0 0 0 1px #0002}.paper-stack>div:nth-child(2){transform:translate(-13px,-12px);background:#d8e0e8}.paper-stack>div:nth-child(3){transform:translate(-25px,-24px);background:#1c2835}.paper-stack article{position:absolute;inset:0;background:linear-gradient(145deg,#172431,#070b10);border-radius:12px;border:1px solid #5c7288;display:grid;place-items:center;font:italic 900 105px Georgia;color:#dce7f0;text-shadow:0 0 20px #26c4ff88}.workspace{padding-top:26px}.section-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px}.section-header h2,.search-head h2{font-size:31px;letter-spacing:-1.2px;margin:0}.notes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:15px}.note-card{background:linear-gradient(145deg,#111923,#0d131b);border:1px solid var(--line);border-top:3px solid var(--note-color,#35bff2);border-radius:15px;padding:17px;min-height:170px;display:flex;flex-direction:column;cursor:pointer;transition:.18s}.note-card:hover{transform:translateY(-2px);border-color:#ffffff22;box-shadow:0 15px 35px #0005}.note-card h3{margin:0 0 9px;font-size:18px}.note-preview{color:#94a4b5;line-height:1.55;font-size:13px;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}.note-foot{margin-top:auto;padding-top:14px;color:#657588;font-size:11px;display:flex;justify-content:space-between}.empty-state{text-align:center;padding:80px 20px;color:var(--muted)}.empty-icon{font-size:38px;color:var(--accent)}.empty-state h3{color:#eaf2fa}.search-view{padding-top:30px}.search-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:25px}.search-head input{width:min(520px,60%);background:#ffffff06;border:1px solid var(--line);color:#fff;border-radius:12px;padding:13px 15px;outline:none}.search-head input:focus{border-color:#36c5f466}.search-result{padding:16px;border:1px solid var(--line);border-radius:13px;margin-bottom:9px;background:#ffffff04;cursor:pointer}.search-result:hover{background:#ffffff08}.search-result small{color:var(--accent)}.modal{position:fixed;inset:0;background:#000b;backdrop-filter:blur(10px);z-index:50;display:grid;place-items:center;padding:18px}.modal-card{width:min(900px,100%);max-height:94vh;overflow:auto;background:#0d141d;border:1px solid #ffffff18;border-radius:20px;box-shadow:var(--shadow)}.small-card{width:min(520px,100%);padding:24px}.modal-head{display:flex;justify-content:space-between;align-items:flex-start;padding:20px 22px;border-bottom:1px solid var(--line)}.modal-head h2{margin:0;font-size:23px}.note-modal-card{overflow:hidden;display:flex;flex-direction:column;max-height:94vh}.note-modal-card .modal-head{flex:0 0 auto}.note-editor{overflow-y:auto;min-height:0}.note-modal-card .modal-foot{flex:0 0 auto}.note-editor{padding:18px 22px}.title-input{width:100%;border:0;background:transparent;color:#fff;font-size:30px;font-weight:800;outline:none;padding:5px 0 14px}.editor-tools{display:flex;gap:5px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:8px 0;margin-bottom:12px}.editor-tools button{border:1px solid transparent;background:transparent;color:#aebdca;border-radius:7px;padding:7px 9px}.editor-tools button:hover{background:#ffffff09;color:#fff}.editor-tools span{flex:1}.rich-editor{min-height:330px;outline:none;line-height:1.75;font-size:16px;color:#eaf0f6}.rich-editor:empty:before{content:attr(data-placeholder);color:#566679}.note-meta-row{display:grid;grid-template-columns:1fr 220px;gap:8px;margin-top:15px}.note-meta-row input,.note-meta-row select,label>input{background:#ffffff05;border:1px solid var(--line);color:#fff;border-radius:10px;padding:10px 12px;outline:none;width:100%}.note-meta-row select option{background:#0d141d}.modal-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding:14px 22px}.danger-link{border:0;background:transparent;color:var(--danger);padding:10px}.attachment-preview img{max-width:240px;border-radius:10px;margin:8px 0}.color-row{display:flex;gap:9px;margin-top:8px}.color-swatch{width:31px;height:31px;border-radius:50%;border:2px solid transparent}.color-swatch.selected{border-color:#fff;box-shadow:0 0 0 2px #ffffff33}.small-card label{display:block;color:#aab8c8;font-size:12px;margin:15px 0}.backup-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.backup-actions button,.file-label{width:100%;text-align:center}.file-label{display:block}.backup-note{font-size:11px;color:#66778a;margin-top:18px}.muted{color:var(--muted);line-height:1.6}.draw-card{width:min(850px,100%)}.draw-toolbar{padding:10px 22px;display:flex;gap:15px;align-items:center}.draw-toolbar label{display:flex;align-items:center;gap:8px;color:#9baabd}.draw-toolbar input{accent-color:var(--accent)}#drawCanvas{display:block;width:calc(100% - 44px);height:430px;margin:0 22px;background:#f7f8fa;border-radius:10px;touch-action:none}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;background:#182431;color:#fff;border:1px solid #ffffff18;padding:11px 15px;border-radius:12px;z-index:100;transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:760px){.mobile-only{display:block}.topbar{height:calc(68px + env(safe-area-inset-top, 0px));padding:env(safe-area-inset-top, 0px) 12px 0}.brand-sub{display:none}.layout{display:block}.sidebar{position:fixed;z-index:40;top:calc(68px + env(safe-area-inset-top, 0px));bottom:0;left:0;width:280px;transform:translateX(-105%);transition:.22s;box-shadow:20px 0 60px #0009}.sidebar.open{transform:translateX(0)}.main{padding:0 15px 35px}.toolbar{height:70px}.toolbar-actions .secondary-btn{display:none}.welcome{grid-template-columns:1fr;min-height:auto;padding:65px 0}.welcome h1{font-size:46px}.welcome-art{display:none}.notes-grid{grid-template-columns:1fr}.search-head{display:block}.search-head input{width:100%;margin-top:18px}.note-meta-row{grid-template-columns:1fr}.backup-actions{grid-template-columns:1fr}.brand-mark{width:38px;height:38px}.brand-name{font-size:18px}}
+
+.ocr-status{min-height:0;color:var(--accent);font-size:12px;padding:0 0 4px}.attachment-preview{display:flex;flex-wrap:wrap;gap:10px}.attachment-preview img{max-width:min(100%,420px);max-height:360px;object-fit:contain;background:#080c12;border-radius:10px}.editor-tools{overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}.editor-tools::-webkit-scrollbar{display:none}
+@media(max-width:760px){.note-modal-card{max-height:calc(100dvh - 20px)}.note-editor{padding:14px 16px}.note-modal-card .modal-head{padding:15px 16px}.note-modal-card .modal-foot{padding:12px 16px}.rich-editor{min-height:260px}.editor-tools{margin-left:-2px;margin-right:-2px}.editor-tools button{flex:0 0 auto}}
+.ocr-status{font-size:12px;color:#6fd5ff;min-height:20px;margin:4px 0 2px;line-height:1.5}.attachment-preview{display:flex;flex-wrap:wrap;gap:8px}.attachment-preview img{max-width:280px;max-height:280px;object-fit:contain;border-radius:10px;border:1px solid var(--line)}
+
+</style>
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-  <script type="module" src="handwriting-ocr.js"></script>
+  <script type="module">
+// SlateFolio local handwriting OCR
+// Runs TrOCR in the browser. The page image is never sent to an OCR API.
+let pipePromise = null;
+let pipeMode = '';
+
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error('The selected image could not be opened.'));
+    img.src = src;
+  });
+}
+
+function makeLineCrops(src) {
+  return loadImage(src).then(img => {
+    const maxW = 2200;
+    const scale = Math.min(1, maxW / img.naturalWidth);
+    const w = Math.max(1, Math.round(img.naturalWidth * scale));
+    const h = Math.max(1, Math.round(img.naturalHeight * scale));
+    const canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    ctx.drawImage(img, 0, 0, w, h);
+    const data = ctx.getImageData(0, 0, w, h).data;
+
+    // Ignore the outer notebook edge/spiral area when possible.
+    const left = Math.floor(w * .04), right = Math.floor(w * .97);
+    const top = Math.floor(h * .035), bottom = Math.floor(h * .985);
+    const rows = new Uint32Array(bottom - top);
+    const xs = new Uint16Array(bottom - top), xe = new Uint16Array(bottom - top);
+    xs.fill(w); xe.fill(0);
+
+    // Pencil/ink is usually dark and low-saturation. This deliberately rejects
+    // the pale blue notebook rules so they don't become fake text lines.
+    for (let yy = top; yy < bottom; yy++) {
+      let count = 0, minx = w, maxx = 0;
+      const row = yy * w * 4;
+      for (let x = left; x < right; x++) {
+        const i = row + x * 4;
+        const r = data[i], g = data[i + 1], b = data[i + 2];
+        const hi = Math.max(r, g, b), lo = Math.min(r, g, b);
+        const lowSat = (hi - lo) < 55;
+        const dark = hi < 175;
+        if (dark && lowSat) { count++; minx = Math.min(minx, x); maxx = Math.max(maxx, x); }
+      }
+      const j = yy - top;
+      rows[j] = count; xs[j] = minx; xe[j] = maxx;
+    }
+
+    const threshold = Math.max(4, Math.floor((right - left) * .0022));
+    const raw = [];
+    let start = -1, last = -1, minX = w, maxX = 0;
+    const finish = () => {
+      if (start >= 0 && last - start >= 4 && maxX > minX) raw.push([start + top, last + top, minX, maxX]);
+      start = -1; last = -1; minX = w; maxX = 0;
+    };
+    for (let j = 0; j < rows.length; j++) {
+      if (rows[j] >= threshold) {
+        if (start < 0) start = j;
+        last = j;
+        minX = Math.min(minX, xs[j]); maxX = Math.max(maxX, xe[j]);
+      } else if (start >= 0 && j - (last - top) > 9) finish();
+    }
+    finish();
+
+    // Merge fragments belonging to the same written line, but never merge
+    // neighboring notebook lines too aggressively.
+    const bands = [];
+    for (const b of raw) {
+      const prev = bands[bands.length - 1];
+      const gap = prev ? b[0] - prev[1] : 999;
+      if (prev && gap < 16 && (b[3] - b[2]) > (right - left) * .08) {
+        prev[1] = b[1]; prev[2] = Math.min(prev[2], b[2]); prev[3] = Math.max(prev[3], b[3]);
+      } else bands.push(b.slice());
+    }
+
+    const crops = [];
+    for (const [y1, y2, x1, x2] of bands) {
+      const padX = Math.max(20, Math.round(w * .018));
+      const padY = Math.max(14, Math.round((y2 - y1) * .8));
+      const sx = Math.max(0, x1 - padX), ex = Math.min(w - 1, x2 + padX);
+      const sy = Math.max(0, y1 - padY), ey = Math.min(h - 1, y2 + padY);
+      if (ex - sx < 70 || ey - sy < 12) continue;
+
+      const c = document.createElement('canvas');
+      // TrOCR works best when the handwritten line is presented clearly on white.
+      c.width = (ex - sx + 1) * 2;
+      c.height = (ey - sy + 1) * 2;
+      const cc = c.getContext('2d');
+      cc.fillStyle = '#fff'; cc.fillRect(0, 0, c.width, c.height);
+      cc.imageSmoothingEnabled = true;
+      cc.drawImage(canvas, sx, sy, ex - sx + 1, ey - sy + 1, 0, 0, c.width, c.height);
+      crops.push(c.toDataURL('image/png'));
+    }
+    return crops;
+  });
+}
+
+async function getPipe(hooks) {
+  if (pipePromise) return pipePromise;
+  pipePromise = (async () => {
+    try {
+      hooks?.onModelStatus?.('Loading local handwriting engine (CPU mode for maximum iPhone compatibility)…');
+      const mod = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm');
+      const { pipeline, env } = mod;
+      env.allowLocalModels = false;
+      env.useBrowserCache = true;
+      // WASM + q8 is the compatibility path on iPhone/iPad. WebGPU can be
+      // enabled later once the core workflow is proven stable.
+      pipeMode = 'WASM / q8';
+      return await pipeline('image-to-text', 'Xenova/trocr-small-handwritten', {
+        device: 'wasm',
+        dtype: 'q8',
+        progress_callback: info => {
+          if (info?.status === 'progress' && typeof info.progress === 'number') hooks?.onModelProgress?.(info.progress);
+          else if (info?.status === 'initiate') hooks?.onModelStatus?.(`Preparing handwriting model: ${info.file ?? ''}`);
+        }
+      });
+    } catch (wasmErr) {
+      // One automatic GPU retry. Some desktop browsers are substantially faster here.
+      try {
+        hooks?.onModelStatus?.('CPU engine unavailable; trying compatible GPU mode…');
+        const mod = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm');
+        const { pipeline, env } = mod;
+        env.allowLocalModels = false; env.useBrowserCache = true;
+        pipeMode = 'WebGPU / fp16';
+        return await pipeline('image-to-text', 'Xenova/trocr-small-handwritten', {
+          device: 'webgpu', dtype: 'fp16',
+          progress_callback: info => {
+            if (info?.status === 'progress' && typeof info.progress === 'number') hooks?.onModelProgress?.(info.progress);
+          }
+        });
+      } catch (gpuErr) {
+        throw new Error(`Handwriting engine could not start. CPU: ${wasmErr?.message || wasmErr}; GPU: ${gpuErr?.message || gpuErr}`);
+      }
+    }
+  })();
+  return pipePromise;
+}
+
+async function transcribe(src, hooks = {}) {
+  const lines = await makeLineCrops(src);
+  if (!lines.length) throw new Error('I could not find handwriting lines in this photo. Move closer and make sure the page fills most of the picture.');
+  hooks.onLines?.(lines.length);
+  const pipe = await getPipe(hooks);
+  const out = [];
+  for (let i = 0; i < lines.length; i++) {
+    hooks.onLine?.(i + 1, lines.length, pipeMode);
+    const result = await pipe(lines[i], { max_new_tokens: 96, num_beams: 4 });
+    const text = (Array.isArray(result) ? result[0]?.generated_text : result?.generated_text || '').trim();
+    if (text) out.push(text);
+  }
+  if (!out.length) throw new Error('The handwriting model ran, but did not return any text.');
+  return out.join('\n');
+}
+
+window.SlateHandwritingOCR = { transcribe };
+
+</script>
 </head>
 <body>
   <div class="app-shell">
@@ -98,9 +267,72 @@
 
   <div class="modal hidden" id="drawModal"><div class="modal-card draw-card"><div class="modal-head"><div><span class="eyebrow">DRAW</span><h2>Sketch on your page</h2></div><button class="icon-btn close-modal">×</button></div><div class="draw-toolbar"><label>Pen <input id="penSize" type="range" min="1" max="20" value="3"></label><button class="secondary-btn" id="clearCanvasBtn">Clear</button></div><canvas id="drawCanvas"></canvas><div class="modal-foot"><div></div><div><button class="secondary-btn close-modal">Cancel</button><button class="primary-btn" id="saveDrawingBtn">Add Drawing</button></div></div></div></div>
 
-  <div class="modal hidden" id="aboutModal"><div class="modal-card small-card"><div class="modal-head"><div><span class="eyebrow">ABOUT</span><h2>SlateFolio</h2></div><button class="icon-btn close-modal">×</button></div><p>A private, local-first notebook for ideas, projects, notes, sketches, and everything worth keeping.</p><p class="muted">Handwriting OCR build · v0.3.1</p><button class="secondary-btn close-modal">Close</button></div></div>
+  <div class="modal hidden" id="aboutModal"><div class="modal-card small-card"><div class="modal-head"><div><span class="eyebrow">ABOUT</span><h2>SlateFolio</h2></div><button class="icon-btn close-modal">×</button></div><p>A private, local-first notebook for ideas, projects, notes, sketches, and everything worth keeping.</p><p class="muted">Handwriting OCR build · v0.3.3</p><button class="secondary-btn close-modal">Close</button></div></div>
 
   <div class="toast" id="toast"></div>
-  <script src="app.js"></script>
+  <script>
+const KEY='slatefolio-v01';
+const VERSION='0.3.1';
+const colors=['#35bff2','#9b7cff','#55d68b','#ffb84d','#ff6f91','#e8e95a','#c28cff','#7ed6df'];
+let state=load(); let currentFolioId=state.currentFolioId||state.folios[0].id; let currentSectionId=null; let editingNoteId=null; let pendingImage=null; let selectedColor=colors[0];
+const $=id=>document.getElementById(id); const esc=s=>String(s??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\\':'&#92;','"':'&quot;'}[c]));
+function uid(p='id'){return p+'_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,7)}
+function load(){try{const x=JSON.parse(localStorage.getItem(KEY));if(x?.folios?.length)return x}catch(e){}const f={id:uid('folio'),name:'My Notebook',sections:[{id:uid('sec'),name:'Getting Started',color:colors[0],notes:[{id:uid('note'),title:'Welcome to SlateFolio',body:'<p>This is your first page. Create sections for different parts of your life, then add notes, sketches, photos, and ideas.</p><p><b>Tip:</b> Everything in this first build is saved locally in your browser.</p>',tags:['welcome'],created:Date.now(),updated:Date.now(),image:null}]}]};return{folios:[f],currentFolioId:f.id,inbox:[]}}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));renderSidebar();updateInbox()}
+function currentFolio(){return state.folios.find(f=>f.id===currentFolioId)||state.folios[0]}
+function allNotes(){return state.folios.flatMap(f=>f.sections.flatMap(s=>s.notes.map(n=>({...n,folio:f,section:s}))));}
+function toast(t){const el=$('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1800)}
+function renderSidebar(){const list=$('folioList');list.innerHTML='';state.folios.forEach(f=>{const b=document.createElement('button');b.className='folio-item'+(f.id===currentFolioId?' active':'');b.innerHTML=`<i class="folio-dot"></i><span>${esc(f.name)}</span>`;b.onclick=()=>{currentFolioId=f.id;currentSectionId=null;save();showFolio()};list.appendChild(b)});showFolioListSections()}
+function showFolioListSections(){/* reserved for future nested sidebar */}
+function showFolio(){const f=currentFolio();$('crumbs').textContent=f.name; $('welcome').classList.toggle('hidden',!!currentSectionId);$('workspace').classList.toggle('hidden',!currentSectionId);$('searchView').classList.add('hidden'); if(currentSectionId){const s=f.sections.find(x=>x.id===currentSectionId);if(!s){currentSectionId=null;return showFolio()}$('crumbs').textContent=f.name+'  /  '+s.name;$('sectionTitle').textContent=s.name;renderNotes(s)}}
+function renderNotes(s){const grid=$('notesGrid'),empty=$('emptyNotes');grid.innerHTML='';s.notes.slice().sort((a,b)=>b.updated-a.updated).forEach(n=>{const d=document.createElement('article');d.className='note-card';d.style.setProperty('--note-color',s.color);const text=(n.body||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();d.innerHTML=`<h3>${esc(n.title||'Untitled note')}</h3><div class="note-preview">${esc(text||'Blank note')}</div><div class="note-foot"><span>${new Date(n.updated).toLocaleDateString()}</span><span>${n.tags?.length?'# '+esc(n.tags[0]):''}</span></div>`;d.onclick=()=>openNote(n.id);grid.appendChild(d)});empty.classList.toggle('hidden',s.notes.length>0)}
+function openModal(id){$(id).classList.remove('hidden')}function closeModals(){document.querySelectorAll('.modal').forEach(m=>m.classList.add('hidden'))}
+function openNote(noteId=null){editingNoteId=noteId;pendingImage=null;const f=currentFolio();const s=currentSectionId?f.sections.find(x=>x.id===currentSectionId):f.sections[0];const n=noteId?s.notes.find(x=>x.id===noteId):null;$('noteModalTitle').textContent=n?'Edit Note':'New Note';$('noteTitle').value=n?.title||'';$('noteBody').innerHTML=n?.body||'';$('noteTags').value=(n?.tags||[]).join(', ');populateNoteSections(n?.sectionId||s.id);$('deleteNoteBtn').style.visibility=n?'visible':'hidden';$('attachmentPreview').innerHTML=n?.image?`<img src="${n.image}" alt="Attached image">`:'';openModal('noteModal');setTimeout(()=>$('noteTitle').focus(),50)}
+function populateNoteSections(selected){const sel=$('noteSection');sel.innerHTML='';currentFolio().sections.forEach(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=s.name;o.selected=s.id===selected;sel.appendChild(o)})}
+function saveNote(){const title=$('noteTitle').value.trim()||'Untitled note';const body=$('noteBody').innerHTML.trim();const tags=$('noteTags').value.split(',').map(x=>x.trim()).filter(Boolean).slice(0,15);const sid=$('noteSection').value;const f=currentFolio();let target=f.sections.find(s=>s.id===sid);if(!target)return;if(editingNoteId){for(const s of f.sections){const idx=s.notes.findIndex(n=>n.id===editingNoteId);if(idx>-1){const old=s.notes.splice(idx,1)[0];target.notes.push({...old,title,body,tags,updated:Date.now(),image:pendingImage??old.image,sectionId:sid});break}}}else target.notes.push({id:uid('note'),title,body,tags,created:Date.now(),updated:Date.now(),image:pendingImage,sectionId:sid});save();closeModals();currentSectionId=sid;showFolio();toast('Note saved')}
+function deleteNote(){if(!editingNoteId)return;const f=currentFolio();for(const s of f.sections){const i=s.notes.findIndex(n=>n.id===editingNoteId);if(i>-1){s.notes.splice(i,1);break}}save();closeModals();showFolio();toast('Note deleted')}
+function createSection(){const name=$('sectionName').value.trim();if(!name)return;const f=currentFolio();const s={id:uid('sec'),name,color:selectedColor,notes:[]};f.sections.push(s);save();$('sectionName').value='';closeModals();currentSectionId=s.id;showFolio();toast('Section created')}
+function createFolio(){const name=$('folioName').value.trim();if(!name)return;const f={id:uid('folio'),name,sections:[]};f.sections.push({id:uid('sec'),name:'General',color:colors[0],notes:[]});state.folios.push(f);currentFolioId=f.id;save();$('folioName').value='';closeModals();currentSectionId=null;showFolio();toast('Folio created')}
+function showSearch(){ $('welcome').classList.add('hidden');$('workspace').classList.add('hidden');$('searchView').classList.remove('hidden');$('searchInput').value='';$('searchInput').focus();renderSearch('')}
+function renderSearch(q){const results=$('searchResults');const query=q.toLowerCase().trim();const hits=allNotes().filter(n=>!query||[n.title,n.body,n.tags?.join(' '),n.section.name,n.folio.name].join(' ').toLowerCase().includes(query));results.innerHTML=hits.length?hits.map(n=>`<div class="search-result" data-id="${n.id}"><small>${esc(n.folio.name)} / ${esc(n.section.name)}</small><h3>${esc(n.title||'Untitled note')}</h3><div class="muted">${esc((n.body||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').slice(0,180))}</div></div>`).join(''):`<div class="empty-state"><div class="empty-icon">⌕</div><h3>No matches</h3><p>Try a different word or tag.</p></div>`;results.querySelectorAll('.search-result').forEach(el=>el.onclick=()=>{const n=allNotes().find(x=>x.id===el.dataset.id);currentFolioId=n.folio.id;currentSectionId=n.section.id;showFolio();openNote(n.id);save()})}
+function updateInbox(){$('inboxCount').textContent=state.inbox.length}
+function exportBackup(){const blob=new Blob([JSON.stringify({...state,exportedAt:new Date().toISOString(),app:'SlateFolio',version:VERSION},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`slatefolio-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);toast('Backup exported')}
+function importBackup(file){const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.folios?.length)throw Error();state=x;currentFolioId=state.folios[0].id;currentSectionId=null;save();closeModals();showFolio();toast('Backup restored')}catch(e){toast('That backup could not be read')}};r.readAsText(file)}
+function printSection(){const s=currentSectionId?currentFolio().sections.find(x=>x.id===currentSectionId):null;if(!s){toast('Open a section first');return}const w=window.open('','_blank');w.document.write(`<html><head><title>${esc(s.name)} — SlateFolio</title><style>body{font-family:Arial,sans-serif;max-width:800px;margin:40px auto;color:#111}h1{border-bottom:2px solid ${s.color};padding-bottom:10px}.note{page-break-inside:avoid;border-bottom:1px solid #ddd;padding:18px 0}.date{font-size:12px;color:#777}</style></head><body><h1>${esc(s.name)}</h1>${s.notes.map(n=>`<div class="note"><h2>${esc(n.title)}</h2><div class="date">${new Date(n.updated).toLocaleString()}</div>${n.image?`<img src="${n.image}" style="max-width:100%;max-height:500px">`:''}${n.body}</div>`).join('')}</body></html>`);w.document.close();w.focus();setTimeout(()=>w.print(),300)}
+function setupCanvas(){const c=$('drawCanvas'),rect=c.getBoundingClientRect(),dpr=devicePixelRatio||1;c.width=rect.width*dpr;c.height=rect.height*dpr;const ctx=c.getContext('2d');ctx.scale(dpr,dpr);ctx.fillStyle='#f7f8fa';ctx.fillRect(0,0,rect.width,rect.height);ctx.strokeStyle='#111827';ctx.lineCap='round';let down=false;c.onpointerdown=e=>{down=true;ctx.beginPath();ctx.moveTo(e.offsetX,e.offsetY)};c.onpointerup=()=>down=false;c.onpointerleave=()=>down=false;c.onpointermove=e=>{if(!down)return;ctx.lineWidth=+$('penSize').value;ctx.lineTo(e.offsetX,e.offsetY);ctx.stroke()}}
+function addDrawing(){const url=$('drawCanvas').toDataURL('image/png');pendingImage=url;$('attachmentPreview').innerHTML=`<img src="${url}" alt="Drawing">`;closeModals();openModal('noteModal');toast('Drawing added to note')}
+function setImagePreview(src,label='Attached image'){ $('attachmentPreview').innerHTML=`<img src="${src}" alt="${label}">`; }
+async function scanToText(){
+  const input=$('imageInput');
+  if(!pendingImage){ toast('Take or attach a page photo first'); input.click(); return; }
+  const status=$('ocrStatus');
+  const editor=$('noteBody');
+  try{
+    if(!window.SlateHandwritingOCR?.transcribe){ throw new Error('Handwriting engine is still loading'); }
+    status.textContent='Preparing the handwriting…';
+    const text=await window.SlateHandwritingOCR.transcribe(pendingImage,{
+      onLines:n=>status.textContent=`Found ${n} handwriting lines. Loading local handwriting engine…`,
+      onModelProgress:p=>status.textContent=`Downloading handwriting engine… ${Math.round(p)}% (first use only)`,
+      onModelStatus:m=>status.textContent=m,
+      onLine:(i,total,mode)=>status.textContent=`Reading handwriting… line ${i} of ${total}${mode?` · ${mode}`:''}`
+    });
+    if(!text.trim()){ status.textContent='No handwriting was recognized. Try a closer, brighter photo.'; toast('No handwriting found'); return; }
+    const html=text.split(/\n+/).map(x=>`<p>${esc(x.trim())}</p>`).join('');
+    const existing=editor.innerHTML.trim();
+    editor.innerHTML=existing ? `${existing}${html}` : html;
+    status.textContent='Handwriting imported. Review and correct anything before saving.';
+    toast('Handwriting imported');
+  }catch(err){
+    console.error(err);
+    status.textContent=err?.message || 'Handwriting scan failed. Try a brighter, closer photo.';
+    toast('Could not read handwriting');
+  }
+}
+
+$('menuBtn').onclick=()=>$('sidebar').classList.toggle('open');$('newFolioBtn').onclick=()=>openModal('folioModal');$('newSectionBtn').onclick=()=>{selectedColor=colors[0];renderColors();openModal('sectionModal')};$('welcomeNewSection').onclick=$('newSectionBtn').onclick;$('newNoteBtn').onclick=()=>openNote();$('welcomeNewNote').onclick=()=>openNote();$('emptyNewNote').onclick=()=>openNote();$('searchFocusBtn').onclick=showSearch;$('searchInput').oninput=e=>renderSearch(e.target.value);$('themeBtn').onclick=()=>{document.documentElement.classList.toggle('light');toast(document.documentElement.classList.contains('light')?'Light mode':'Dark mode')};$('saveNoteBtn').onclick=saveNote;$('deleteNoteBtn').onclick=()=>{if(confirm('Delete this note?'))deleteNote()};$('saveSectionBtn').onclick=createSection;$('saveFolioBtn').onclick=createFolio;$('backupBtn').onclick=()=>openModal('backupModal');$('exportBtn').onclick=exportBackup;$('importInput').onchange=e=>e.target.files[0]&&importBackup(e.target.files[0]);$('printBtn').onclick=printSection;$('aboutBtn').onclick=()=>openModal('aboutModal');$('attachImageBtn').onclick=()=>$('imageInput').click();$('cameraBtn').onclick=()=>$('imageInput').click();$('imageInput').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{pendingImage=r.result;setImagePreview(r.result,'Scanned or attached photo');$('ocrStatus').textContent='Photo ready. Tap Handwriting to Text to transcribe it.';toast('Photo added')};r.readAsDataURL(f)};$('ocrBtn').onclick=scanToText;$('drawBtn').onclick=()=>{openModal('drawModal');setTimeout(setupCanvas,50)};$('clearCanvasBtn').onclick=setupCanvas;$('saveDrawingBtn').onclick=addDrawing;document.querySelectorAll('.close-modal').forEach(b=>b.onclick=closeModals);document.querySelectorAll('[data-cmd]').forEach(b=>b.onclick=()=>document.execCommand(b.dataset.cmd,false,null));$('inboxBtn').onclick=()=>toast('Inbox is ready for the next build');
+
+function renderColors(){const r=$('colorRow');r.innerHTML='';colors.forEach(c=>{const b=document.createElement('button');b.className='color-swatch'+(c===selectedColor?' selected':'');b.style.background=c;b.onclick=()=>{selectedColor=c;renderColors()};r.appendChild(b)})}renderColors();renderSidebar();updateInbox();showFolio();
+
+</script>
 </body>
 </html>
