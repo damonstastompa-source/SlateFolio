@@ -1,11 +1,10 @@
-# SlateFolio v0.4.5
+# SlateFolio v0.4.6
 
-Flat, GitHub Pages-ready build. Upload all files in this folder to the repository root.
+Flat, GitHub Pages-ready SlateFolio build. Upload all files in this directory to the repository root.
 
-## What's new in v0.4.5
-- Print the entire currently open notebook.
-- Choose specific sections/subsections and/or individual note pages to print.
-- Selecting a section includes its notes and nested subsections.
-- Print output is formatted for paper and includes note text and attached images.
+## Indexed PDF / Print
+Open Menu → Backup / Restore → Print Notebook / Choose Pages. Choose the entire notebook or selected sections/notes, select Color or Printer friendly, and optionally include a clickable table of contents. Use the browser print dialog to print or save as PDF.
 
-SlateFolio stores notebook data locally in the browser. Export a backup before replacing files or changing devices.
+The export includes a cover page, clickable table-of-contents links, note titles, attached images, and page-number footer support where the browser's print engine supports CSS page counters. Browser printing cannot reliably calculate destination page numbers inside the table of contents across all browsers; that requires a dedicated PDF pagination engine and is a limitation of this first trial.
+
+Notebook data is stored locally in the browser. Export a backup before replacing app files.
