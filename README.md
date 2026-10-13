@@ -1,17 +1,13 @@
-# SlateFolio v0.4.2
+# SlateFolio v0.4.3
 
-A standalone, local-first notebook web app for GitHub Pages.
+Flat, standalone GitHub Pages build. Upload all five files to the repository root.
 
-## Deploy
-Upload all files in this folder to the root of your GitHub Pages repository. No build step or folders are required.
+## v0.4.3 updates
+- Prevents iOS Safari input auto-zoom by keeping form control text at 16px or larger.
+- Locks background scrolling while dialogs are open and lets the dialog itself scroll.
+- Reworks sidebar navigation into expandable tiers: notebook → sections/subsections → note titles.
+- Adds explicit, accessible color swatch buttons and updates a section color immediately when selected.
+- Keeps local TrOCR handwriting recognition and adds Tesseract.js as a fallback if the handwriting engine fails.
+- Keeps the original scanned image attached to the note while inserting recognized text for review.
 
-## Organization controls
-- Tap a notebook name to open it.
-- Tap the `⋯` beside a notebook to rename it, add a section, or delete it.
-- Tap a section name to open its notes.
-- Tap `+` beside a section to add a subsection.
-- Tap the `⋯` beside a section, or the `⋯` in the open section header, to rename it, change its color, add a subsection, or delete it.
-- Tap outside a modal or use its Done/Cancel control to close it.
-
-## Storage
-Notes are stored in this browser's local storage. Export a backup before replacing app files or clearing browser data.
+Data is stored in local browser storage. Export a backup before replacing app files.
