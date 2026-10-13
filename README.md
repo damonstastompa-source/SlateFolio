@@ -1,7 +1,12 @@
-# SlateFolio v0.4.8
+# SlateFolio v0.4.9
 
-Flat GitHub Pages build. Upload all files in this folder to the repository root.
+Mobile export-window polish: the Color and Printer Friendly choices now fit side by side with readable labels, the notebook selection tree is more compact, and the export action bar stays visible with iPhone safe-area spacing.
 
-Export PDF / Print is now available in the left menu, on the home screen, and in the top toolbar. Choose an entire notebook or selected sections/pages, then choose Color or Printer friendly.
+## Deploy
+Upload these four files directly to the root of your GitHub Pages repository, replacing the previous versions:
+- `index.html`
+- `manifest.webmanifest`
+- `slatefolio-logo.png`
+- `README.md`
 
-Notebook data is stored locally in your browser. Export a backup before replacing app files.
+No nested folder is required. Export a backup of your notebook data before updating.
