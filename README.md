@@ -1,9 +1,17 @@
-# SlateFolio v0.4.1
+# SlateFolio v0.4.2
 
-Flat, GitHub Pages-ready SlateFolio build. Upload all files in this directory to the repository root.
+A standalone, local-first notebook web app for GitHub Pages.
 
-Files: `index.html`, `slatefolio-logo.png`, `manifest.webmanifest`, `.nojekyll`, `README.md`.
+## Deploy
+Upload all files in this folder to the root of your GitHub Pages repository. No build step or folders are required.
 
-This build fixes the v0.4.0 startup bug where event binding stopped at a reference to missing sidebar elements. The sidebar now includes a section list and a New Section control, and all referenced element IDs are present.
+## Organization controls
+- Tap a notebook name to open it.
+- Tap the `⋯` beside a notebook to rename it, add a section, or delete it.
+- Tap a section name to open its notes.
+- Tap `+` beside a section to add a subsection.
+- Tap the `⋯` beside a section, or the `⋯` in the open section header, to rename it, change its color, add a subsection, or delete it.
+- Tap outside a modal or use its Done/Cancel control to close it.
 
-Notes are stored in this browser's local storage. Export a backup before replacing deployed files as a precaution.
+## Storage
+Notes are stored in this browser's local storage. Export a backup before replacing app files or clearing browser data.
