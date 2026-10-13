@@ -1,13 +1,11 @@
-# SlateFolio v0.4.3
+# SlateFolio v0.4.5
 
-Flat, standalone GitHub Pages build. Upload all five files to the repository root.
+Flat, GitHub Pages-ready build. Upload all files in this folder to the repository root.
 
-## v0.4.3 updates
-- Prevents iOS Safari input auto-zoom by keeping form control text at 16px or larger.
-- Locks background scrolling while dialogs are open and lets the dialog itself scroll.
-- Reworks sidebar navigation into expandable tiers: notebook → sections/subsections → note titles.
-- Adds explicit, accessible color swatch buttons and updates a section color immediately when selected.
-- Keeps local TrOCR handwriting recognition and adds Tesseract.js as a fallback if the handwriting engine fails.
-- Keeps the original scanned image attached to the note while inserting recognized text for review.
+## What's new in v0.4.5
+- Print the entire currently open notebook.
+- Choose specific sections/subsections and/or individual note pages to print.
+- Selecting a section includes its notes and nested subsections.
+- Print output is formatted for paper and includes note text and attached images.
 
-Data is stored in local browser storage. Export a backup before replacing app files.
+SlateFolio stores notebook data locally in the browser. Export a backup before replacing files or changing devices.
