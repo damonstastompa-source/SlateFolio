@@ -1,13 +1,9 @@
-# SlateFolio v0.4.0
+# SlateFolio v0.4.1
 
-Flat, GitHub Pages-ready build. Upload all files in this folder to the repository root.
+Flat, GitHub Pages-ready SlateFolio build. Upload all files in this directory to the repository root.
 
-## Navigation update
-- Menu closes when you tap outside it or select a notebook/section.
-- Notebook list shows each notebook's section count.
-- Sections are listed directly in the drawer for quick access.
-- Use `+` beside a section to create a subsection.
-- Use `⋯` beside a section to rename or delete it (with confirmation).
-- Subsections remain within their parent section and are included in local JSON backups.
+Files: `index.html`, `slatefolio-logo.png`, `manifest.webmanifest`, `.nojekyll`, `README.md`.
 
-SlateFolio is separate from Recovery Journal. Notes are stored locally in this browser; export backups regularly.
+This build fixes the v0.4.0 startup bug where event binding stopped at a reference to missing sidebar elements. The sidebar now includes a section list and a New Section control, and all referenced element IDs are present.
+
+Notes are stored in this browser's local storage. Export a backup before replacing deployed files as a precaution.
