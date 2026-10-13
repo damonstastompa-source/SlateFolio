@@ -1,13 +1,7 @@
-# SlateFolio v0.4.7
+# SlateFolio v0.4.8
 
-A local-first digital notebook for GitHub Pages. Upload all files in this folder to the repository root. No build step required.
+Flat GitHub Pages build. Upload all files in this folder to the repository root.
 
-## Quick workflow
-1. Open ☰ and choose/create a notebook.
-2. Expand it and create sections/subsections.
-3. Open a section and create notes.
-4. Use Search to find content.
-5. Use Export PDF to print the whole notebook or selected sections/pages in color or printer-friendly mode.
-6. Use Backup / Restore to export regular JSON backups.
+Export PDF / Print is now available in the left menu, on the home screen, and in the top toolbar. Choose an entire notebook or selected sections/pages, then choose Color or Printer friendly.
 
-Notes are stored in the browser on this device. Back up before changing deployments or devices. OCR is browser-based and recognition may need manual correction.
+Notebook data is stored locally in your browser. Export a backup before replacing app files.
